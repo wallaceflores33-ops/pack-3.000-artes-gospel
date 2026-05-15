@@ -511,23 +511,38 @@ footer{background:#030303;border-top:1px solid rgba(255,255,255,0.05);padding:30
 
 <script>
 // ═══ EXPORTAR HTML COM IMAGENS EMBUTIDAS ═══
-async function exportarHTML() {
-  showToast('⏳ Preparando download...');
-  // Clona o DOM atual
+function exportarHTML() {
+  // 1. Força setAttribute em TODAS as imagens base64 (garante serialização)
+  let count = 0;
+  document.querySelectorAll('img').forEach(img => {
+    if (img.src && img.src.startsWith('data:')) {
+      img.setAttribute('src', img.src);
+      count++;
+    }
+  });
+
+  if (count === 0) {
+    showToast('⚠ Nenhuma imagem para exportar!', false);
+    return;
+  }
+
+  showToast('⏳ Gerando arquivo com ' + count + ' imagens...');
+
+  // 2. Clona o documento
   const clone = document.documentElement.cloneNode(true);
 
-  // Remove o botão de export do clone
-  const btn = clone.querySelector('#export-btn');
-  if (btn) btn.remove();
+  // 3. Remove botão de export e toast do clone
+  clone.querySelector('#export-btn')?.remove();
+  clone.querySelector('#save-toast')?.remove();
 
-  // Remove o toast do clone
-  const tst = clone.querySelector('#save-toast');
-  if (tst) tst.remove();
+  // 4. Remove inputs de upload (não funcionam no HTML estático)
+  clone.querySelectorAll('input[type="file"]').forEach(i => i.remove());
 
-  // Pega o HTML completo
-  let html = '<!DOCTYPE html>\n' + clone.outerHTML;
+  // 5. Monta HTML final
+  const html = '<!DOCTYPE html>\n' + clone.outerHTML;
+  const mb = (html.length / 1024 / 1024).toFixed(2);
 
-  // Cria o arquivo e força download
+  // 6. Cria blob e dispara download
   const blob = new Blob([html], {type:'text/html;charset=utf-8'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -536,9 +551,9 @@ async function exportarHTML() {
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
 
-  setTimeout(() => showToast('✔ Download iniciado!'), 500);
+  setTimeout(() => showToast('✔ Baixado! ' + count + ' imgs · ' + mb + 'MB'), 600);
 }
 
 // ═══ IMAGE STORAGE (persiste entre sessões) ═══
@@ -577,17 +592,17 @@ function showToast(msg, ok=true) {
 
 async function saveImg(key, dataUrl) {
   try {
-    showToast('⏳ Salvando...', true);
-    const compressed = await compressImage(dataUrl);
-    const kb = Math.round(compressed.length * 0.75 / 1024);
-    console.log('compressed size:', kb, 'KB');
-    IMG_STORE[key] = compressed;
-    const r = await window.storage.set('lp-img:' + key, compressed);
-    if (r) showToast('✔ Salvo! (' + kb + ' KB)');
-    else    showToast('⚠ Falha ao salvar', false);
+    const kb = Math.round(dataUrl.length * 0.75 / 1024);
+    IMG_STORE[key] = dataUrl;
+    try {
+      await window.storage.set('lp-img:' + key, dataUrl);
+      showToast('✔ Salvo! (' + kb + ' KB)');
+    } catch(e) {
+      showToast('✔ Adicionado (' + kb + ' KB)');
+    }
   } catch(e) {
     console.error('saveImg error:', e);
-    showToast('⚠ Erro: ' + (e.message || 'imagem grande demais'), false);
+    showToast('⚠ Erro: ' + (e.message || 'falha'), false);
   }
 }
 
@@ -649,17 +664,16 @@ function triggerUpload(el) {
 function handleUpload(input) {
   const file = input.files[0];
   if (!file) return;
-  const zone = input.closest('.upload-zone') || input.closest('.pack-upload');
-  const card = input.closest('.pack-card') || input.closest('[data-key]');
-  const key = card ? card.getAttribute('data-key') : (zone ? zone.getAttribute('data-key') : null);
+  const card = input.closest('[data-key]');
+  const key = card ? card.getAttribute('data-key') : null;
+  if (!key) return;
 
   const reader = new FileReader();
-  reader.onload = function(e) {
-    const dataUrl = e.target.result;
-    if (key) {
-      saveImg(key, dataUrl);
-      applyImage(key, dataUrl);
-    }
+  reader.onload = async function(e) {
+    // Comprime ANTES de aplicar (mantém DOM leve)
+    const compressed = await compressImage(e.target.result);
+    applyImage(key, compressed);
+    saveImg(key, compressed);
   };
   reader.readAsDataURL(file);
 }
