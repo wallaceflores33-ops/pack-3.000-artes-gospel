@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3.000 Artes Cristãs Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#050505;--dark:#0D1B2A;--gold:#D4AF37;--gold2:#F0C040;--white:#FFFFFF;--gray:#B8B8B8;--glass:rgba(255,255,255,0.04);--glass-border:rgba(212,175,55,0.18)}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.gold{color:var(--gold)}
+.glow-text{text-shadow:0 0 40px rgba(212,175,55,0.6)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(5,5,5,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(212,175,55,0.08)}
+.nav-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.1rem;letter-spacing:2px;color:var(--gold)}
+.nav-cta{background:linear-gradient(135deg,#D4AF37,#F0C040);color:#050505;font-family:'Poppins',sans-serif;font-weight:700;font-size:.8rem;padding:10px 22px;border:none;border-radius:50px;cursor:pointer;letter-spacing:1px;transition:.3s;text-decoration:none}
+.nav-cta:hover{transform:scale(1.05);box-shadow:0 0 24px rgba(212,175,55,0.5)}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:80px;position:relative;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(13,27,42,0.9) 0%,var(--bg) 70%)}
+#hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(212,175,55,0.07) 0%,transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);border-radius:50px;padding:6px 16px;font-size:.75rem;letter-spacing:2px;color:var(--gold);margin-bottom:24px;animation:fadeUp .8s ease both}
+.hero-headline{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin-bottom:20px;animation:fadeUp .9s ease both}
+.hero-sub{font-size:1rem;color:var(--gray);line-height:1.7;margin-bottom:36px;animation:fadeUp 1s ease both;max-width:480px}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,#D4AF37,#F0C040);color:#050505;font-family:'Poppins',sans-serif;font-weight:800;font-size:1rem;padding:18px 40px;border-radius:50px;text-decoration:none;letter-spacing:1.5px;transition:.3s;box-shadow:0 0 40px rgba(212,175,55,0.35),0 8px 32px rgba(0,0,0,0.4);animation:fadeUp 1.1s ease both}
+.cta-btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 0 60px rgba(212,175,55,0.55)}
+.cta-checks{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:20px;animation:fadeUp 1.2s ease both}
+.cta-checks span{font-size:.82rem;color:#B8B8B8;display:flex;align-items:center;gap:5px}
+.cta-checks span::before{content:'✔';color:var(--gold);font-weight:700}
+
+/* UPLOAD ZONES */
+.hero-mockup{position:relative;height:500px;display:flex;align-items:center;justify-content:center;animation:fadeIn 1.4s ease both}
+.mockup-glow{position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(212,175,55,0.15) 0%,transparent 70%);border-radius:50%;animation:pulse 3s ease-in-out infinite}
+.upload-zone{position:relative;z-index:2;width:100%;height:100%;border:2px dashed rgba(212,175,55,0.3);border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;transition:.3s;background:rgba(212,175,55,0.02)}
+.upload-zone:hover{border-color:rgba(212,175,55,0.6);background:rgba(212,175,55,0.05)}
+.upload-zone.has-img{border:none;background:none;overflow:hidden}
+.upload-zone.has-img:hover{opacity:.9}
+.upload-zone input{display:none}
+.upload-icon{font-size:2rem;opacity:.6}
+.upload-text{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.7rem;color:var(--gold);letter-spacing:1px;text-align:center}
+.upload-sub{font-size:.65rem;color:#555}
+.upload-zone img{width:100%;height:100%;object-fit:cover;border-radius:18px}
+.hero-upload-wrap{width:100%;max-width:500px;height:400px;position:relative;z-index:2}
+
+/* SECTIONS */
+section{padding:100px 0}
+.section-label{display:inline-block;font-size:.7rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;opacity:.8}
+.section-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.2;margin-bottom:16px}
+.section-sub{color:var(--gray);font-size:1rem;line-height:1.7;max-width:600px;margin:0 auto}
+
+/* DOR */
+#dor{background:linear-gradient(180deg,var(--bg) 0%,#080e14 50%,var(--bg) 100%)}
+.dor-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:60px}
+.dor-list{display:flex;flex-direction:column;gap:16px}
+.dor-item{display:flex;align-items:center;gap:14px;padding:16px 20px;background:rgba(255,50,50,0.05);border:1px solid rgba(255,50,50,0.12);border-radius:12px;font-size:.95rem;color:#ccc;transition:.3s}
+.dor-item:hover{background:rgba(255,50,50,0.08);transform:translateX(4px)}
+.dor-x{color:#ff4444;font-weight:900;font-size:1.1rem;flex-shrink:0}
+.compare-box{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--glass-border)}
+.compare-half{padding:30px;text-align:center}
+.compare-before{background:rgba(50,20,20,0.5)}
+.compare-after{background:rgba(20,35,20,0.5)}
+.compare-label{font-family:'Poppins',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:2px;margin-bottom:16px}
+.compare-art{border-radius:10px;height:140px;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:.9rem;letter-spacing:2px;position:relative;overflow:hidden}
+.art-before{background:linear-gradient(135deg,#2a2a2a,#1a1a1a);border:2px dashed rgba(255,255,255,0.1);color:#555}
+.art-after{background:linear-gradient(135deg,#1a0a2e,#2d1b69);border:2px solid rgba(212,175,55,0.3);box-shadow:0 0 30px rgba(212,175,55,0.1);color:rgba(212,175,55,0.9)}
+.art-after::after{content:'✝';position:absolute;font-size:3rem;opacity:0.15;color:white}
+
+/* BENEFÍCIOS */
+#beneficios{background:var(--bg)}
+.ben-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin-top:60px}
+.ben-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:24px 20px;text-align:center;transition:.3s;cursor:default;position:relative;overflow:hidden}
+.ben-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(212,175,55,0.08),transparent 70%);opacity:0;transition:.3s}
+.ben-card:hover{transform:translateY(-6px);border-color:rgba(212,175,55,0.4);box-shadow:0 20px 50px rgba(0,0,0,0.4),0 0 30px rgba(212,175,55,0.1)}
+.ben-card:hover::before{opacity:1}
+.ben-icon{font-size:1.8rem;margin-bottom:12px}
+.ben-card h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.5px}
+
+/* ═══ O QUE VOCÊ RECEBE ═══ */
+#recebe{background:linear-gradient(180deg,#020024 0%,#05008B 40%,#05008B 60%,#020024 100%);position:relative;overflow:hidden;padding:120px 0}
+#recebe::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;background:linear-gradient(180deg,var(--bg),transparent);z-index:2;pointer-events:none}
+#recebe::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(0deg,var(--bg),transparent);z-index:2;pointer-events:none}
+.recebe-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;background:radial-gradient(circle,rgba(100,80,255,0.08),transparent 65%);pointer-events:none}
+
+/* PACK GRID */
+.pack-grid{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:auto;gap:12px;margin-top:60px;position:relative;z-index:3}
+.pack-card{border-radius:14px;overflow:hidden;position:relative;cursor:pointer;transition:all .35s cubic-bezier(.25,.8,.25,1);box-shadow:0 6px 24px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.07);aspect-ratio:3/4;background:linear-gradient(145deg,#0d0d1a,#080810)}
+.pack-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 18px 45px rgba(0,0,0,0.7),0 0 30px rgba(120,100,255,0.18);border-color:rgba(212,175,55,0.4);z-index:5}
+.pack-card.wide{grid-column:span 2;aspect-ratio:2/1}
+.pack-card.tall{grid-row:span 2;aspect-ratio:auto}
+.pack-upload{width:100%;height:100%;min-height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:none;background:transparent;cursor:pointer;transition:.3s;padding:12px}
+.pack-upload .up-icon{font-size:1.5rem;opacity:.35;transition:.3s;line-height:1}
+.pack-upload .up-label{font-family:'Montserrat',sans-serif;font-weight:800;font-size:.58rem;letter-spacing:1.5px;color:rgba(255,255,255,.45);text-align:center;line-height:1.4;transition:.3s;text-transform:uppercase}
+.pack-upload .up-hint{font-size:.48rem;color:rgba(255,255,255,.18);transition:.3s;letter-spacing:.5px}
+.pack-card:hover .up-icon{opacity:.75;transform:scale(1.1)}
+.pack-card:hover .up-label{color:rgba(255,255,255,.85)}
+.pack-card:hover .up-hint{color:rgba(255,255,255,.4)}
+.pack-upload input{display:none}
+.pack-upload img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:13px}
+.pack-card.has-img .up-icon,.pack-card.has-img .up-label,.pack-card.has-img .up-hint{display:none}
+/* Row separators - subtle glow line */
+.pack-row-label{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin:8px 0 0;padding:0 2px}
+.pack-row-label span{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.6rem;letter-spacing:3px;color:rgba(212,175,55,.5);white-space:nowrap;text-transform:uppercase}
+.pack-row-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(212,175,55,.2),transparent)}
+
+@media(min-width:1024px){
+  .pack-grid{grid-template-columns:repeat(5,1fr);gap:14px}
+}
+@media(min-width:600px) and (max-width:1023px){
+  .pack-grid{grid-template-columns:repeat(3,1fr);gap:12px}
+  .pack-card.wide{grid-column:span 2}
+  .pack-card{aspect-ratio:3/4}
+}
+@media(max-width:599px){
+  .pack-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .pack-card{aspect-ratio:3/4;border-radius:10px}
+  .pack-card.wide{grid-column:span 2;aspect-ratio:16/9}
+  .pack-upload .up-icon{font-size:1.2rem}
+  .pack-upload .up-label{font-size:.52rem;letter-spacing:1px}
+  .pack-upload .up-hint{display:none}
+  .pack-row-label{margin:4px 0 0}
+}
+
+.recebe-footer{text-align:center;margin-top:50px;position:relative;z-index:3}
+.recebe-footer p{color:rgba(255,255,255,.55);font-size:.9rem;margin-bottom:28px;font-style:italic}
+.cta-green{display:inline-block;background:linear-gradient(135deg,#00c853,#00e676,#00c853);color:#050505;font-family:'Poppins',sans-serif;font-weight:800;font-size:1.1rem;padding:20px 50px;border-radius:60px;text-decoration:none;letter-spacing:2px;transition:.4s;box-shadow:0 0 50px rgba(0,200,83,0.35),0 8px 30px rgba(0,0,0,0.4);text-transform:uppercase}
+.cta-green:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 0 70px rgba(0,200,83,0.5),0 16px 40px rgba(0,0,0,0.5)}
+
+/* PASSOS */
+#passos{background:linear-gradient(135deg,#050505 0%,#080e14 100%)}
+.passos-wrap{display:flex;gap:0;margin-top:60px;align-items:stretch;position:relative}
+.passos-wrap::before{content:'';position:absolute;top:60px;left:calc(16.66% + 10px);right:calc(16.66% + 10px);height:2px;background:linear-gradient(90deg,var(--gold),rgba(212,175,55,0.3),var(--gold));opacity:.3}
+.passo{flex:1;text-align:center;padding:0 20px;position:relative}
+.passo-num{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#D4AF37,#F0C040);color:#050505;font-family:'Poppins',sans-serif;font-weight:800;font-size:1.2rem;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 0 30px rgba(212,175,55,0.4)}
+.passo-visual{width:80px;height:80px;border-radius:16px;background:var(--glass);border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:2rem}
+.passo h4{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;margin-bottom:8px}
+.passo p{font-size:.85rem;color:var(--gray);line-height:1.6}
+
+/* GALERIA */
+#galeria{background:var(--bg)}
+.galeria-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:60px}
+.gal-item{border-radius:12px;overflow:hidden;aspect-ratio:1;position:relative;cursor:pointer;transition:.3s}
+.gal-item:hover{transform:scale(1.04);z-index:2;box-shadow:0 20px 50px rgba(0,0,0,0.6),0 0 30px rgba(212,175,55,0.15)}
+.gal-item:nth-child(1){grid-column:span 2;aspect-ratio:2/1}
+.gal-art{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;position:relative;overflow:hidden}
+.gal-art::before{content:'✝';position:absolute;font-size:4rem;opacity:0.06;color:white}
+.gal-art span{font-family:'Montserrat',sans-serif;font-weight:900;font-size:.7rem;letter-spacing:2px;color:rgba(255,255,255,0.7);text-transform:uppercase;z-index:1}
+.g1{background:linear-gradient(135deg,#1a0a2e,#2d1b69)}.g2{background:linear-gradient(135deg,#0d2137,#1a4a6e)}.g3{background:linear-gradient(135deg,#1a1a0d,#3d3510)}.g4{background:linear-gradient(135deg,#2d0d0d,#6e1a1a)}.g5{background:linear-gradient(135deg,#0d1a0d,#1a3d1a)}.g6{background:linear-gradient(135deg,#1a0a0d,#4e1a26)}.g7{background:linear-gradient(135deg,#0a0d1a,#1a2653)}.g8{background:linear-gradient(135deg,#1a1a1a,#2d2a10)}
+
+/* BÔNUS */
+#bonus{background:linear-gradient(180deg,var(--bg),#080e14,var(--bg))}
+.bonus-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:60px}
+.bonus-card{background:linear-gradient(145deg,rgba(13,27,42,0.6),rgba(5,5,5,0.8));border:1px solid rgba(212,175,55,0.2);border-radius:20px;padding:30px;text-align:center;position:relative;overflow:hidden;transition:.3s}
+.bonus-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(212,175,55,0.04),transparent 60%);pointer-events:none}
+.bonus-card:hover{transform:translateY(-6px);border-color:rgba(212,175,55,0.4);box-shadow:0 20px 50px rgba(0,0,0,0.5),0 0 40px rgba(212,175,55,0.12)}
+.bonus-tag{display:inline-block;background:linear-gradient(135deg,#D4AF37,#F0C040);color:#050505;font-family:'Poppins',sans-serif;font-weight:800;font-size:.65rem;letter-spacing:2px;padding:4px 12px;border-radius:50px;margin-bottom:16px}
+.bonus-icon{font-size:2.5rem;margin-bottom:16px;filter:drop-shadow(0 0 16px rgba(212,175,55,0.4))}
+.bonus-card h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;margin-bottom:8px}
+.bonus-card p{font-size:.83rem;color:var(--gray);line-height:1.6}
+
+/* DEPOIMENTOS */
+#depoimentos{background:var(--bg)}
+.dep-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:60px}
+.dep-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:28px;transition:.3s;position:relative;overflow:hidden}
+.dep-card::before{content:'"';position:absolute;top:-10px;left:20px;font-size:6rem;color:rgba(212,175,55,0.06);font-family:'Georgia',serif;line-height:1}
+.dep-card:hover{transform:translateY(-4px);border-color:rgba(212,175,55,0.3);box-shadow:0 20px 50px rgba(0,0,0,0.4)}
+.dep-stars{color:var(--gold);font-size:1rem;margin-bottom:12px;letter-spacing:2px}
+.dep-text{font-size:.9rem;color:#ccc;line-height:1.7;margin-bottom:20px;font-style:italic}
+.dep-author{display:flex;align-items:center;gap:12px}
+.dep-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;flex-shrink:0;border:2px solid rgba(212,175,55,0.3)}
+.av1{background:linear-gradient(135deg,#2d1b69,#1a0a2e);color:#a78bd4}
+.av2{background:linear-gradient(135deg,#1a4a6e,#0d2137);color:#6ab4e8}
+.av3{background:linear-gradient(135deg,#3d3510,#1a1a0d);color:#d4c06a}
+.dep-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem}
+.dep-role{font-size:.75rem;color:var(--gray)}
+
+/* OFERTA */
+#oferta{background:linear-gradient(135deg,#050505 0%,#080e14 50%,#050505 100%);position:relative;overflow:hidden}
+#oferta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(212,175,55,0.05),transparent 70%);pointer-events:none}
+.oferta-box{max-width:700px;margin:0 auto;text-align:center}
+.oferta-preco{display:flex;align-items:center;justify-content:center;gap:24px;margin:40px 0;flex-wrap:wrap}
+.preco-de{text-decoration:line-through;color:#666;font-size:1.2rem}
+.preco-por{font-family:'Montserrat',sans-serif;font-weight:900;font-size:4rem;color:var(--gold);text-shadow:0 0 40px rgba(212,175,55,0.5);line-height:1}
+.preco-label{font-size:.75rem;color:var(--gray);text-align:left}
+.preco-label strong{display:block;font-size:1rem;color:var(--white)}
+.cta-btn-xl{display:block;background:linear-gradient(135deg,#D4AF37,#F0C040);color:#050505;font-family:'Poppins',sans-serif;font-weight:800;font-size:1.2rem;padding:22px 50px;border-radius:50px;text-decoration:none;letter-spacing:2px;transition:.3s;box-shadow:0 0 60px rgba(212,175,55,0.4),0 16px 50px rgba(0,0,0,0.5);margin:0 auto;max-width:500px}
+.cta-btn-xl:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 0 80px rgba(212,175,55,0.6)}
+.selos{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:32px}
+.selo{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:50px;padding:8px 16px;font-size:.78rem;color:#ccc}
+.garantia-box{margin-top:40px;padding:28px;background:rgba(212,175,55,0.05);border:1px solid rgba(212,175,55,0.15);border-radius:16px;display:flex;gap:20px;align-items:center;text-align:left}
+.garantia-icon{font-size:2.5rem;flex-shrink:0}
+.garantia-box h4{font-family:'Montserrat',sans-serif;font-weight:800;color:var(--gold);margin-bottom:4px}
+.garantia-box p{font-size:.85rem;color:var(--gray);line-height:1.6}
+
+/* FAQ */
+#faq{background:var(--bg)}
+.faq-list{max-width:750px;margin:60px auto 0;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--glass);border:1px solid var(--glass-border);border-radius:14px;overflow:hidden;transition:.3s}
+.faq-q{padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;user-select:none}
+.faq-q:hover{background:rgba(212,175,55,0.04)}
+.faq-arrow{color:var(--gold);font-size:1.2rem;transition:.3s;flex-shrink:0}
+.faq-a{max-height:0;overflow:hidden;transition:.4s ease;font-size:.88rem;color:var(--gray);line-height:1.7;padding:0 24px}
+.faq-item.open .faq-a{max-height:200px;padding:0 24px 20px}
+.faq-item.open .faq-arrow{transform:rotate(45deg)}
+.faq-item.open{border-color:rgba(212,175,55,0.3)}
+
+/* CTA FINAL */
+#cta-final{background:linear-gradient(135deg,#0d0d0d,#080e14);text-align:center;position:relative;overflow:hidden}
+#cta-final::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(212,175,55,0.06),transparent 70%);pointer-events:none}
+footer{background:#030303;border-top:1px solid rgba(255,255,255,0.05);padding:30px;text-align:center;font-size:.8rem;color:#555}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.08);opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.float{animation:float 4s ease-in-out infinite}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:16px 20px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-mockup{height:300px}
+  .hero-upload-wrap{height:280px}
+  .dor-grid{grid-template-columns:1fr;gap:40px}
+  .passos-wrap{flex-direction:column;gap:30px}
+  .passos-wrap::before{display:none}
+  .galeria-grid{grid-template-columns:repeat(2,1fr)}
+  .galeria-grid .gal-item:nth-child(1){grid-column:span 2}
+  .preco-por{font-size:3rem}
+  section{padding:70px 0}
+  .pack-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .pack-card.wide{grid-column:span 2}
+  #recebe{padding:80px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">✝ ARTES CRISTÃS</div>
+  <a href="#oferta" class="nav-cta">QUERO ACESSO</a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">🎨 &nbsp;MAIOR BIBLIOTECA CRISTÃ DO CANVA</div>
+        <h1 class="hero-headline">
+          <span class="gold glow-text">3.000 ARTES CRISTÃS</span><br>PRONTAS PARA SUA IGREJA<br>POSTAR HOJE MESMO
+        </h1>
+        <p class="hero-sub">Tenha acesso imediato à maior biblioteca de artes cristãs editáveis do Canva e transforme o visual da sua igreja em algo <strong style="color:#fff">profissional, moderno e impactante</strong> — sem precisar entender nada de design.</p>
+        <a href="#oferta" class="cta-btn">✨ &nbsp;QUERO ACESSO IMEDIATO</a>
+        <div class="cta-checks">
+          <span>Acesso liberado na hora</span>
+          <span>Editável pelo celular</span>
+          <span>Funciona no Canva grátis</span>
+          <span>Atualizações constantes</span>
+        </div>
+      </div>
+      <div class="hero-mockup float">
+        <div class="mockup-glow"></div>
+        <div class="hero-upload-wrap">
+          <div class="upload-zone" id="heroUpload" data-key="hero-img" onclick="triggerUpload(this)">
+            <input type="file" accept="image/*" onchange="handleUpload(this)">
+            <div class="upload-icon">🖼</div>
+            <div class="upload-text">CLIQUE PARA INSERIR<br>SEU MOCKUP</div>
+            <div class="upload-sub">PNG, JPG ou WEBP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DOR ═══ -->
+<section id="dor">
+  <div class="container reveal">
+    <div style="text-align:center">
+      <span class="section-label">DIAGNÓSTICO</span>
+      <h2 class="section-title">Sua igreja ainda posta artes<br><span class="gold">com aparência amadora?</span></h2>
+    </div>
+    <div class="dor-grid">
+      <div class="dor-list">
+        <div class="dor-item"><span class="dor-x">✗</span> Não tem designer na equipe</div>
+        <div class="dor-item"><span class="dor-x">✗</span> Perde horas tentando criar uma arte</div>
+        <div class="dor-item"><span class="dor-x">✗</span> Artes desorganizadas e sem padrão</div>
+        <div class="dor-item"><span class="dor-x">✗</span> Instagram sem identidade visual</div>
+        <div class="dor-item"><span class="dor-x">✗</span> Visual sem profissionalismo ou impacto</div>
+        <div class="dor-item"><span class="dor-x">✗</span> Depende de outra pessoa para criar</div>
+      </div>
+      <div style="display:flex;gap:16px;align-items:flex-start">
+        <!-- ANTES -->
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:10px">
+          <div style="font-family:'Poppins',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:2px;color:#ff6666">❌ ANTES</div>
+          <div data-key="compare-antes" onclick="triggerUpload(this)" style="width:100%;aspect-ratio:1/1;border-radius:14px;background:linear-gradient(135deg,#2a2a2a,#1a1a1a);border:2px dashed rgba(255,255,255,0.1);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;position:relative;overflow:hidden;cursor:pointer;transition:.3s">
+            <input type="file" accept="image/*" onchange="handleUpload(this)" style="display:none">
+            <span class="cmp-icon" style="font-size:1.6rem;opacity:.25">🖼</span>
+            <span class="cmp-label" style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:.6rem;letter-spacing:1.5px;color:#555;text-transform:uppercase">Arte Genérica</span>
+            <span class="cmp-sub" style="font-size:.55rem;color:#3a3a3a;text-align:center;padding:0 12px;line-height:1.5">Clique para<br>inserir imagem</span>
+          </div>
+          <p style="font-size:.72rem;color:#666;text-align:center;line-height:1.5">Visual amador,<br>sem padrão</p>
+        </div>
+
+        <!-- VS -->
+        <div style="display:flex;align-items:center;padding-top:36px">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1rem;color:rgba(212,175,55,.4);letter-spacing:2px">VS</div>
+        </div>
+
+        <!-- DEPOIS -->
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:10px">
+          <div style="font-family:'Poppins',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:2px;color:#66ff99">✔ DEPOIS</div>
+          <div data-key="compare-depois" onclick="triggerUpload(this)" style="width:100%;aspect-ratio:1/1;border-radius:14px;background:linear-gradient(135deg,#1a0a2e,#2d1b69,#1a0a2e);border:2px solid rgba(212,175,55,0.35);box-shadow:0 0 30px rgba(212,175,55,0.12),0 8px 30px rgba(0,0,0,0.5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;position:relative;overflow:hidden;cursor:pointer;transition:.3s">
+            <input type="file" accept="image/*" onchange="handleUpload(this)" style="display:none">
+            <div class="cmp-icon" style="position:absolute;font-size:5rem;opacity:.06;color:white;pointer-events:none">✝</div>
+            <span class="cmp-icon" style="font-size:1.6rem;position:relative;z-index:1">✨</span>
+            <span class="cmp-label" style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:.6rem;letter-spacing:1.5px;color:rgba(212,175,55,.8);text-transform:uppercase;position:relative;z-index:1">Arte Premium</span>
+            <span class="cmp-sub" style="font-size:.55rem;color:rgba(255,255,255,.35);text-align:center;padding:0 12px;line-height:1.5;position:relative;z-index:1">Clique para<br>inserir imagem</span>
+          </div>
+          <p style="font-size:.72rem;color:#888;text-align:center;line-height:1.5">Visual profissional,<br>impactante</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BENEFÍCIOS ═══ -->
+<section id="beneficios">
+  <div class="container reveal">
+    <div style="text-align:center">
+      <span class="section-label">CATEGORIAS</span>
+      <h2 class="section-title">Tudo que sua igreja precisa para<br><span class="gold">parecer profissional nas redes</span></h2>
+    </div>
+    <div class="ben-grid">
+      <div class="ben-card"><div class="ben-icon">🙏</div><h4>Culto Dominical</h4></div>
+      <div class="ben-card"><div class="ben-icon">🎺</div><h4>Congressos</h4></div>
+      <div class="ben-card"><div class="ben-icon">🔥</div><h4>Jovens</h4></div>
+      <div class="ben-card"><div class="ben-icon">🌸</div><h4>Mulheres</h4></div>
+      <div class="ben-card"><div class="ben-icon">🏠</div><h4>Células</h4></div>
+      <div class="ben-card"><div class="ben-icon">🍞</div><h4>Santa Ceia</h4></div>
+      <div class="ben-card"><div class="ben-icon">📅</div><h4>Eventos</h4></div>
+      <div class="ben-card"><div class="ben-icon">🎙</div><h4>Conferências</h4></div>
+      <div class="ben-card"><div class="ben-icon">📱</div><h4>Feed Instagram</h4></div>
+      <div class="ben-card"><div class="ben-icon">⬜</div><h4>Stories</h4></div>
+      <div class="ben-card"><div class="ben-icon">🖥</div><h4>Telão Projeção</h4></div>
+      <div class="ben-card"><div class="ben-icon">▶️</div><h4>Thumbs YouTube</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ O QUE VOCÊ RECEBE ═══ -->
+<section id="recebe">
+  <div class="recebe-glow"></div>
+  <div class="container reveal" style="position:relative;z-index:3">
+    <div style="text-align:center;margin-bottom:0">
+      <span class="section-label" style="color:#a89cff">PACOTE COMPLETO</span>
+      <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.6rem,3.5vw,2.6rem);line-height:1.15;color:#fff;margin-bottom:16px">
+        O QUE VOCÊ GANHA COM O<br><span style="color:var(--gold);text-shadow:0 0 30px rgba(212,175,55,0.4)">PACK CHURCH?</span>
+      </h2>
+      <p style="color:rgba(255,255,255,.55);font-size:1rem;max-width:560px;margin:0 auto;line-height:1.7">Não apenas um, mas <strong style="color:#fff">vários packs completos</strong> recheados de criatividade e inspiração.</p>
+    </div>
+
+    <div class="pack-grid">
+      <!-- linha 1 -->
+      <div class="pack-row-label"><span>Eventos de Culto</span></div>
+      <div class="pack-card" data-key="pack-culto"><div class="pack-upload" onclick="triggerUpload(this)"><input type="file" accept="image/*" onchange="handleUpload(this)"><div class="up-icon">🙏</div><div class="up-label">Culto de<br>Louvor</div><div class="up-hint">clique p/ enviar</div></div></div>
+      <div class="pack-card" data-key="pack-jovens"><div class="pack-upload" onclick="triggerUpload(this)"><input type="file" accept="image/*" onchange="handleUpload(this)"><div class="up-icon">🔥</div><div class="up-label">Avivamento<br>Jovens</div><div class="up-hint">clique p/ enviar</div></div></div>
+      <div class="pack-card" data-key="pack-ceia"><div class="pack-upload" onclick="triggerUpload(this)"><input type="file" accept="image/*" onchange="handleUpload(this)"><div class="up-icon">🍞</div><div class="up-label">Santa<br>Ceia</div><div class="up-hint">clique p/ enviar</div></div></div>
+      <div class="pack-card" data-key="pack-vigilia"><div class="pack-upload" onclick="triggerUpload(this)"><input type="file" accept="image/*" onchange="handleUpload(this)"><div class="up-icon">🌙</div><div class="up-label">Vigília de<br>Oração</div><div class="up-hint">clique p/ enviar</div></div></div>
+      <div class="pack-card" data-key="pack-mulheres"><div class="pack-upload" onclick="triggerUpload(this)"><input type="file" accept="image/*" onchange="handleUpload(this)"><div class="up-icon">🌸</div><div class="up-label">Encontro de<br>Mulheres</div><div class="up-hint">clique p/ enviar</div></div></div>
+
+      <!-- linha 2 -->
+      <div class="pack-row-label"><span>Programação Semanal</span></div>
+      <div class="pack-card wide" data-key="pack-congresso"><div class="pack-upload" onclick="triggerUpload(this)"><input type="file" accept="image/*" onchange="handleUpload(this)"><div class="up-icon">🎺</div><div class="up-label">Congresso de Fé</div><div class="up-hint">clique p/ enviar</div></div></div>
+      <div class="pack-card" data-key="pack-domingo"><div class="pack-upload" onclick="triggerUpload(this)"><input type="file" accept="image/*" onchange="handleUpload(this)"><div class="up-icon">☀️</div><div class="up-label">Domingo de<br>Vitória</div><div class="up-hint">clique p/ enviar</div></div></div>
+      <div class="pack-card" data-key="pack-adoracao"><div class="pack-upload" onclick="triggerUpload(this)"><input type="file" accept="image/*" onchange="handleUpload(this)"><div class="up-icon">🎵</div><div class="up-label">Noite de<br>Adoração</div><div class="up-hint">clique p/ enviar</div></div></div>
+      <div class="pack-card" data-key="pack-profetica"><div class="pack-upload" onclick="triggerUpload(this)"><input type="file" accept="image/*" onchange="handleUpload(this)"><div class="up-icon">⚡</div><div class="up-label">Quinta<br>Profética</div><div class="up-hint">clique p/ enviar</div></div></div>
+
+      <!-- linha 3 -->
+      <div class="pack-row-label"><span>Social Media & Extras</span></div>
+      <div class="pack-card" data-key="pack-batismo"><div class="pack-upload" onclick="triggerUpload(this)"><input type="file" accept="image/*" onchange="handleUpload(this)"><div class="up-icon">💧</div><div class="up-label">Batismo</div><div class="up-hint">clique p/ enviar</div></div></div>
+      <div class="pack-card" data-key="pack-crachas"><div class="pack-upload" onclick="triggerUpload(this)"><input type="file" accept="image/*" onchange="handleUpload(this)"><div class="up-icon">🪪</div><div class="up-label">Crachás<br>Ministério</div><div class="up-hint">clique p/ enviar</div></div></div>
+      <div class="pack-card" data-key="pack-stories"><div class="pack-upload" onclick="triggerUpload(this)"><input type="file" accept="image/*" onchange="handleUpload(this)"><div class="up-icon">📱</div><div class="up-label">Stories<br>Instagram</div><div class="up-hint">clique p/ enviar</div></div></div>
+      <div class="pack-card" data-key="pack-feed"><div class="pack-upload" onclick="triggerUpload(this)"><input type="file" accept="image/*" onchange="handleUpload(this)"><div class="up-icon">📲</div><div class="up-label">Feed<br>Completo</div><div class="up-hint">clique p/ enviar</div></div></div>
+      <div class="pack-card" data-key="pack-bemvindo"><div class="pack-upload" onclick="triggerUpload(this)"><input type="file" accept="image/*" onchange="handleUpload(this)"><div class="up-icon">✝️</div><div class="up-label">Seja<br>Bem-Vindo</div><div class="up-hint">clique p/ enviar</div></div></div>
+    </div>
+
+    <div class="recebe-footer">
+      <p>✦ Cada arte é 100% editável, permitindo total liberdade para personalizar conforme sua necessidade ✦</p>
+      <a href="#oferta" class="cta-green">🚀 &nbsp;GARANTIR MEU PACK</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PASSOS ═══ -->
+<section id="passos" class="reveal">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-label">SIMPLICIDADE</span>
+      <h2 class="section-title">Mesmo sem experiência você consegue<br><span class="gold">criar artes profissionais</span></h2>
+      <p class="section-sub" style="margin:16px auto 0">Todas as artes já estão prontas. Basta editar textos, fotos e postar.</p>
+    </div>
+    <div class="passos-wrap">
+      <div class="passo"><div class="passo-num">1</div><div class="passo-visual">🗂</div><h4>Escolha o Template</h4><p>Navegue pelas 3.000 artes e escolha a que mais combina com o seu evento ou postagem.</p></div>
+      <div class="passo"><div class="passo-num">2</div><div class="passo-visual">📱</div><h4>Edite no Canva</h4><p>Abra no Canva pelo celular ou PC, edite apenas os textos e a foto. Pronto em minutos.</p></div>
+      <div class="passo"><div class="passo-num">3</div><div class="passo-visual">🚀</div><h4>Poste na Sua Igreja</h4><p>Baixe e publique nas redes da sua igreja com visual de agência profissional.</p></div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ═══ BÔNUS ═══ -->
+<section id="bonus">
+  <div class="container reveal">
+    <div style="text-align:center">
+      <span class="section-label">BÔNUS EXCLUSIVOS</span>
+      <h2 class="section-title">Você ainda leva <span class="gold">4 bônus gratuitos</span></h2>
+      <p class="section-sub" style="margin:16px auto 0">Tudo incluso no mesmo valor. Sem pegadinha.</p>
+    </div>
+    <div class="bonus-grid">
+      <div class="bonus-card"><div class="bonus-tag">BÔNUS 1</div><div class="bonus-icon">📆</div><h3>Calendário de Conteúdo Cristão</h3><p>Planejamento completo com datas, temas e sugestões de postagem para 365 dias.</p></div>
+      <div class="bonus-card"><div class="bonus-tag">BÔNUS 2</div><div class="bonus-icon">✨</div><h3>Pack de Elementos Premium</h3><p>Ícones, selos, stickers e elementos decorativos para enriquecer suas artes.</p></div>
+      <div class="bonus-card"><div class="bonus-tag">BÔNUS 3</div><div class="bonus-icon">🖼</div><h3>Fundos e Texturas</h3><p>Mais de 200 fundos e texturas premium para usar nas suas criações no Canva.</p></div>
+      <div class="bonus-card"><div class="bonus-tag">BÔNUS 4</div><div class="bonus-icon">🔄</div><h3>Atualizações Futuras</h3><p>Todas as novas artes que forem adicionadas você recebe sem pagar nada a mais.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DEPOIMENTOS ═══ -->
+<section id="depoimentos">
+  <div class="container reveal">
+    <div style="text-align:center">
+      <span class="section-label">PROVA SOCIAL</span>
+      <h2 class="section-title">Igrejas que já <span class="gold">transformaram seu visual</span></h2>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"Minha igreja mudou completamente no Instagram. As pessoas agora param para olhar nossas postagens. Parece de agência profissional!"</p><div class="dep-author"><div class="dep-avatar av1">P</div><div><div class="dep-name">Pastora Priscila M.</div><div class="dep-role">Igreja Palavra Viva — SP</div></div></div></div>
+      <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"Economizei horas e horas de trabalho toda semana. As artes são lindas e muito fáceis de editar. Recomendo para toda equipe de comunicação."</p><div class="dep-author"><div class="dep-avatar av2">M</div><div><div class="dep-name">Ministro Marco A.</div><div class="dep-role">Igreja Águas Vivas — MG</div></div></div></div>
+      <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"As artes parecem de agência profissional. Nossa comunicação ganhou outro nível. A equipe de mídia ficou super animada!"</p><div class="dep-author"><div class="dep-avatar av3">R</div><div><div class="dep-name">Renata S.</div><div class="dep-role">Igreja Fonte da Vida — RJ</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OFERTA ═══ -->
+<section id="oferta">
+  <div class="container reveal">
+    <div class="oferta-box">
+      <span class="section-label">OFERTA ESPECIAL</span>
+      <h2 class="section-title">Oferta promocional<br><span class="gold">liberada hoje</span></h2>
+      <p style="color:var(--gray);margin-top:12px">Acesso vitalício às 3.000 artes + 4 bônus exclusivos</p>
+      <div class="oferta-preco">
+        <div><span class="preco-de">De R$197,00</span><div class="preco-por">R$27<span style="font-size:2rem">,90</span></div></div>
+        <div class="preco-label"><strong>Pagamento único</strong>acesso vitalício<br>sem mensalidade</div>
+      </div>
+      <a href="#" class="cta-btn-xl">🚀 &nbsp;QUERO ACESSO IMEDIATO</a>
+      <div class="selos">
+        <div class="selo">🔒 Compra Segura</div><div class="selo">⚡ Acesso na Hora</div><div class="selo">💳 Pix e Cartão</div><div class="selo">🛡 Ambiente Criptografado</div>
+      </div>
+      <div class="garantia-box"><div class="garantia-icon">🛡️</div><div><h4>Garantia Incondicional de 7 Dias</h4><p>Se por qualquer motivo você não gostar, devolvemos 100% do seu dinheiro. Sem burocracia, sem perguntas.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section id="faq">
+  <div class="container reveal">
+    <div style="text-align:center">
+      <span class="section-label">DÚVIDAS FREQUENTES</span>
+      <h2 class="section-title">Ficou alguma <span class="gold">dúvida?</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q">Funciona no celular? <span class="faq-arrow">+</span></div><div class="faq-a">Sim! Todas as artes são editáveis pelo celular usando o aplicativo gratuito do Canva para iOS e Android.</div></div>
+      <div class="faq-item"><div class="faq-q">Preciso saber design? <span class="faq-arrow">+</span></div><div class="faq-a">Não! As artes já estão 100% prontas. Você só precisa editar o texto com o nome da sua igreja e o evento.</div></div>
+      <div class="faq-item"><div class="faq-q">Vou receber o acesso na hora? <span class="faq-arrow">+</span></div><div class="faq-a">Sim! Após a confirmação do pagamento, você recebe o acesso imediatamente no seu e-mail.</div></div>
+      <div class="faq-item"><div class="faq-q">As artes são editáveis? <span class="faq-arrow">+</span></div><div class="faq-a">Sim! Todos os templates são 100% editáveis no Canva gratuito. Mude textos, cores, fotos e adapte.</div></div>
+      <div class="faq-item"><div class="faq-q">Tem garantia de devolução? <span class="faq-arrow">+</span></div><div class="faq-a">Sim! Você tem 7 dias de garantia incondicional. Devolvemos 100% do valor sem perguntas.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA FINAL ═══ -->
+<section id="cta-final">
+  <div class="container reveal" style="text-align:center;max-width:750px">
+    <span class="section-label">ÚLTIMA CHANCE</span>
+    <h2 class="section-title" style="font-size:clamp(1.8rem,3.5vw,2.8rem)">Transforme hoje o<br><span class="gold glow-text">visual da sua igreja</span></h2>
+    <p style="color:var(--gray);font-size:1rem;line-height:1.7;margin:20px auto 40px;max-width:550px">Tenha acesso imediato às 3.000 artes cristãs e comece hoje mesmo a postar como uma igreja profissional.</p>
+    <a href="#oferta" class="cta-btn-xl" style="font-size:1.1rem">✝ &nbsp;QUERO ACESSO AGORA</a>
+    <div class="selos" style="margin-top:24px"><div class="selo">🔒 Compra Segura</div><div class="selo">⚡ Acesso Imediato</div><div class="selo">🛡 Garantia 7 Dias</div></div>
+  </div>
+</section>
+
+<!-- BOTÃO DE EXPORTAR (canto inferior esquerdo) -->
+<button id="export-btn" onclick="exportarHTML()" style="position:fixed;bottom:24px;left:24px;z-index:9998;background:linear-gradient(135deg,#D4AF37,#F0C040);color:#050505;font-family:'Poppins',sans-serif;font-weight:800;font-size:.78rem;padding:12px 22px;border:none;border-radius:50px;cursor:pointer;letter-spacing:1px;box-shadow:0 0 30px rgba(212,175,55,0.4),0 8px 24px rgba(0,0,0,0.4);transition:.3s;display:flex;align-items:center;gap:8px" onmouseover="this.style.transform='translateY(-2px) scale(1.05)'" onmouseout="this.style.transform='none'">
+  ⬇ BAIXAR HTML COMPLETO
+</button>
+
+<footer>
+  <p style="color:#333;margin-bottom:8px">✝ Artes Cristãs Premium · Todos os direitos reservados</p>
+  <p>Este produto é destinado a igrejas e ministérios cristãos.</p>
+</footer>
+
+<script>
+// ═══ EXPORTAR HTML COM IMAGENS EMBUTIDAS ═══
+async function exportarHTML() {
+  showToast('⏳ Preparando download...');
+  // Clona o DOM atual
+  const clone = document.documentElement.cloneNode(true);
+
+  // Remove o botão de export do clone
+  const btn = clone.querySelector('#export-btn');
+  if (btn) btn.remove();
+
+  // Remove o toast do clone
+  const tst = clone.querySelector('#save-toast');
+  if (tst) tst.remove();
+
+  // Pega o HTML completo
+  let html = '<!DOCTYPE html>\n' + clone.outerHTML;
+
+  // Cria o arquivo e força download
+  const blob = new Blob([html], {type:'text/html;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'landing-page-artes-cristas.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  setTimeout(() => showToast('✔ Download iniciado!'), 500);
+}
+
+// ═══ IMAGE STORAGE (persiste entre sessões) ═══
+const IMG_STORE = {};
+
+function compressImage(dataUrl, maxW=480, quality=0.55) {
+  return new Promise(res => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const scale = Math.min(1, maxW / img.width);
+      canvas.width  = Math.round(img.width  * scale);
+      canvas.height = Math.round(img.height * scale);
+      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+      res(canvas.toDataURL('image/jpeg', quality));
+    };
+    img.src = dataUrl;
+  });
+}
+
+function showToast(msg, ok=true) {
+  let t = document.getElementById('save-toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'save-toast';
+    t.style.cssText = 'position:fixed;bottom:30px;right:30px;z-index:9999;padding:12px 22px;border-radius:50px;font-family:Poppins,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:1px;transition:opacity .4s;pointer-events:none';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.style.background = ok ? 'linear-gradient(135deg,#00c853,#00e676)' : '#c82000';
+  t.style.color = ok ? '#050505' : '#fff';
+  t.style.opacity = '1';
+  clearTimeout(t._t);
+  t._t = setTimeout(() => t.style.opacity = '0', 2500);
+}
+
+async function saveImg(key, dataUrl) {
+  try {
+    showToast('⏳ Salvando...', true);
+    const compressed = await compressImage(dataUrl);
+    const kb = Math.round(compressed.length * 0.75 / 1024);
+    console.log('compressed size:', kb, 'KB');
+    IMG_STORE[key] = compressed;
+    const r = await window.storage.set('lp-img:' + key, compressed);
+    if (r) showToast('✔ Salvo! (' + kb + ' KB)');
+    else    showToast('⚠ Falha ao salvar', false);
+  } catch(e) {
+    console.error('saveImg error:', e);
+    showToast('⚠ Erro: ' + (e.message || 'imagem grande demais'), false);
+  }
+}
+
+async function loadAllImages() {
+  try {
+    const keys = await window.storage.list('lp-img:');
+    if (!keys || !keys.keys || keys.keys.length === 0) return;
+    for (const k of keys.keys) {
+      try {
+        const r = await window.storage.get(k);
+        if (r && r.value) {
+          const shortKey = k.replace('lp-img:', '');
+          IMG_STORE[shortKey] = r.value;
+          applyImage(shortKey, r.value);
+        }
+      } catch(e) { console.warn('load key failed:', k, e); }
+    }
+  } catch(e) { console.warn('storage list failed:', e); }
+}
+
+function applyImage(key, dataUrl) {
+  // Comparação antes/depois
+  const cmpEl = document.querySelector('[data-key="' + key + '"]');
+  if (cmpEl && (key === 'compare-antes' || key === 'compare-depois')) {
+    cmpEl.querySelectorAll('.cmp-icon,.cmp-label,.cmp-sub').forEach(e => e.style.display = 'none');
+    let img = cmpEl.querySelector('img');
+    if (!img) { img = document.createElement('img'); cmpEl.appendChild(img); }
+    img.src = dataUrl;
+    img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:13px;pointer-events:none';
+    return;
+  }
+  // Hero
+  const heroZone = document.querySelector('.upload-zone[data-key="' + key + '"]');
+  if (heroZone) {
+    heroZone.classList.add('has-img');
+    let img = heroZone.querySelector('img');
+    if (!img) { img = document.createElement('img'); heroZone.appendChild(img); }
+    img.src = dataUrl;
+    img.alt = 'Mockup';
+    return;
+  }
+  // Pack cards
+  const card = document.querySelector('.pack-card[data-key="' + key + '"]');
+  if (card) {
+    card.classList.add('has-img');
+    const wrap = card.querySelector('.pack-upload');
+    let img = wrap.querySelector('img');
+    if (!img) { img = document.createElement('img'); wrap.appendChild(img); }
+    img.src = dataUrl;
+    img.alt = key;
+  }
+}
+
+function triggerUpload(el) {
+  const input = el.querySelector('input[type="file"]');
+  if (input) input.click();
+}
+
+function handleUpload(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const zone = input.closest('.upload-zone') || input.closest('.pack-upload');
+  const card = input.closest('.pack-card') || input.closest('[data-key]');
+  const key = card ? card.getAttribute('data-key') : (zone ? zone.getAttribute('data-key') : null);
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const dataUrl = e.target.result;
+    if (key) {
+      saveImg(key, dataUrl);
+      applyImage(key, dataUrl);
+    }
+  };
+  reader.readAsDataURL(file);
+}
+
+// ═══ INIT ═══
+document.addEventListener('DOMContentLoaded', () => {
+  // Load saved images
+  loadAllImages();
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(els => {
+    els.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(e => obs.observe(e));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Smooth nav
+  let lastY = 0;
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    const y = window.scrollY;
+    nav.style.opacity = y > lastY && y > 200 ? '.7' : '1';
+    lastY = y;
+  });
+});
+</script>
+</body>
+</html>
